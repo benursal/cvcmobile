@@ -103,7 +103,7 @@ function uploadPhoto(imageURI) {
     options.params = params;
 
     var ft = new FileTransfer();
-    ft.upload(imageURI, encodeURI("http://192.168.0.100/test/upload.php"), win, fail, options);
+    ft.upload(imageURI, encodeURI("http://192.168.0.102/test/upload.php"), win, fail, options);
 }
 
  function win(r) {
@@ -144,7 +144,7 @@ function onGetDirectorySuccess(dir) {
 function downloadFile()
 {
 	navigator.notification.alert("downloading...");
-	var source = encodeURI("http://192.168.0.100/test/download.php");
+	var source = encodeURI("http://192.168.0.102/test/download.php");
     var targetPath = "file:///cvc/qr_code.png"; 
       
     var fileTransfer = new FileTransfer();
