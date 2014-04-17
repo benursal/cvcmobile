@@ -39,9 +39,52 @@ var app = {
     receivedEvent: function(id) {
        // var parentElement = document.getElementById(id);
         //document.getElementById('result').innerHTML = "Welcome to churva";
-        navigator.notification.alert("works well even with dialog plugin");
+        go_home();
     }
 };
+
+function go_home()
+{
+	$('#templates').load('templates/home.html', function(){
+		var template = $('#tpl_home').html();
+		var html = Mustache.to_html(template, {});
+		$('#main_content').html(html);
+	});
+}
+
+function my_contacts()
+{
+	$('#templates').load('templates/my_contacts.html', function(){
+		$.ajax({
+			url:"http://192.168.0.102/cvc/pg_users/",
+			jsonp: 'callback',
+		    dataType: 'jsonp',
+			timeout: 25000,
+			success: function(data, status){
+				//alert('success');
+				var template = $('#tpl_my_contacts').html();
+				var html = Mustache.to_html(template, data);
+				$('#main_content').html(html);
+			},
+			error: function(){
+				alert('an error has occured');
+			}
+		});
+		/* var template = $('#tpl_my_contacts').html();
+		var html = Mustache.to_html(template, {});
+		$('#main_content').html(html); */
+	});
+}
+
+function my_profile()
+{
+	$('#templates').load('templates/my_profile.html', function(){
+		var template = $('#tpl_my_profile').html();
+		var html = Mustache.to_html(template, {});
+		$('#main_content').html(html);
+	});
+}
+
 
 function scanNow()
 {

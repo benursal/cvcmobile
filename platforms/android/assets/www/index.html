@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -26,19 +8,21 @@
         <title>Hello World</title>
     </head>
     <body>
-    	<a href="#" style="font-size:20px">HOME</a> | 
-    	<a href="qr_code.html" style="font-size:20px">QR CODE</a> | 
-    	<a href="my_contacts.html" style="font-size:20px">MY CONTACTS</a>
-        <div class="app">
-        	<div id="result"></div>
-        	<!--<img src="http://192.168.0.100/test/qr-code.png" id="myImage" />-->
-            <button style="padding:10px;font-size:30px" onclick="scanNow()">Scan QR Code</button><br />
-            <button style="padding:10px;font-size:30px" onclick="doTheEncode()">Encode</button><br />
-            <button style="padding:10px;font-size:30px" onclick="takephoto()">Take Picture</button><br />
-            <button style="padding:10px;font-size:30px" onclick="downloadFile()">Download File</button><br />
-            <button style="padding:10px;font-size:30px" onclick="createfile()">Create File</button><br />
-        </div>
+		<div style="padding:15px">
+			<a href="#" onclick="go_home()" style="font-size:20px">HOME</a> | 
+			<a href="#" onclick="my_contacts()" style="font-size:20px">MY CONTACTS</a> | 
+			<a href="#" onclick="my_profile()" style="font-size:20px">MY PROFILE</a>
+		</div>
+        <!-- the main content here.  this changes -->
+        <div id="main_content"></div>
+		
+        <!-- hide templates container -->
+		<div id="templates" style="display:none"></div>
+        
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/jquery.qrcode-0.7.0.min.js"></script>
+        <script type="text/javascript" src="js/mustache.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
